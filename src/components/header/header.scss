@@ -1,0 +1,178 @@
+.header {
+    height: 68px;
+    width: 100%;
+    padding: 12px 33px;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    background-color: $white;
+    border-bottom: 1px solid $light-gray;
+    z-index: 5;
+    @media screen and (max-width: $mobile) {
+        padding: 9px 20px;
+        height: 48px;
+    }
+
+    &__burger {
+        transition: 0.3s ease;
+        cursor: pointer;
+        @media screen and (max-width: $mobile) {
+            order: 1;
+        }
+
+        &-line  {
+            width: 30px;
+            height: 3px;
+            background-color: $blue;
+            transition: 0.3s ease;
+
+            &:not(:last-child) {
+                margin-bottom: 7px;
+            }
+            @media screen and (max-width: $mobile) {
+                width: 22.5px;
+
+                &:not(:last-child) {
+                    margin-bottom: 4px;
+                }
+            }
+        }
+
+        &:hover .header__burger-line { 
+            background-color: lighten($color: $blue, $amount: 30%);
+        }
+
+        &.open {
+            .header__burger-line {
+                margin-bottom: 0;
+
+                &:first-child {
+                    transform: rotate(-45deg) translateY(1.5px);
+                    transform-origin: center center;
+                }
+
+                &:last-child {
+                    transform: rotate(45deg) translateY(-1.5px);
+                    transform-origin: center center;
+                }
+
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+   &__question {
+    position: relative;
+    @media screen and (max-width: $mobile) {
+          display: none;  
+    }
+   }
+
+    &__question-icon {
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 3px solid $blue;
+        transition: 0.3s ease;
+        cursor: pointer;
+        
+        &::after {
+            position: absolute;
+            display: block;
+            content: '?';
+            font-weight: 700;
+            color: $blue
+        }
+
+        &:hover {
+            border-color: lighten($color: $blue, $amount: 30%);
+
+            &::after {
+                color: lighten($color: $blue, $amount: 30%);
+            }
+        }
+    }
+
+    &__question-drop {
+        position: absolute;
+        display: none;
+        top: 100%;
+        right: -11px;
+        box-shadow: 0 3px 12px #0003;
+        min-width: 241px;
+        text-align: center;
+        color: $black;
+        background-color: $white;
+        padding: 24px 16px;
+        z-index: 2;
+
+        &::after {
+            position: absolute;
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: $white;
+            top: -8px;
+            right: 15px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 8px #0003;
+            
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            display: block;
+            width: 50px;
+            height: 15px;
+            background-color: $white;
+            z-index: 3;
+            box-shadow: none;
+            top: 0;
+            right: 5px;
+        } 
+
+        &.show {
+            display: block;
+        }
+    }
+
+    &__logo {
+        display: block;
+        max-width: 295px;
+        height: 44px;
+        @media screen and (max-width: $mobile) {
+            height: 30px;
+            max-width: 195px;
+        }
+    }
+
+    &__tel {
+        margin-bottom: 20px;
+    }
+
+    &__tel-phone {
+        display: block;
+        font-size: 28px;
+        line-height: 38px;
+        font-weight: 600;
+    }
+
+    &__mail {
+        color: $blue;
+        transition: 0.3s ease;
+        text-decoration: underline;
+
+        &:hover {
+            color: lighten($color: $blue, $amount: 30%)
+        }
+    }
+}

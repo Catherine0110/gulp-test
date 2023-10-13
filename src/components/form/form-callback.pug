@@ -1,0 +1,15 @@
+.callback-form
+    p.callback-form__title 
+        | Введите логин и пароль 
+        br
+        | для входа в Личный кабинет
+    form.callback-form__inner.js-form(action="/assets/jsonData/index.json" method="GET")
+        label.callback-form__field
+                input(type="text" placeholder="Логин" id="login" name="log" required).callback-form__input
+        label.callback-form__field
+                input(type="password" placeholder="Пароль" id="password" name="password" required).callback-form__input
+        button(type="submit").callback-form__btn.js-form-btn 
+            span.callback-form__btn-text Войти
+    .callback-form__links
+        p.callback-form__link Напомнить пароль
+        p.callback-form__link Регистрация

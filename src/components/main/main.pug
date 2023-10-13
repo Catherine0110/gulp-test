@@ -1,0 +1,17 @@
+.main
+    .container 
+        .main__wrap 
+            h1.main__title.title Поиск начислений
+            form.main__form
+                    label.main__label
+                        input(type="text" placeholder="Введите данные для поиска").main__input
+                    
+                    -
+                        var btn = {
+                            className: "btn--form",
+                            text: "Найти"
+                        };
+                    include ../buttons/button
+                    button.main__btn-mobile 
+                        +svg('search','search')
+            span.main__text Чем больше параметров введено, тем полнее результаты поиска

@@ -1,0 +1,7 @@
+.menu.js-menu
+    .menu__inner
+        each item in ItemMenu 
+            .menu__block
+                p.menu__block-title #{item.title}
+                each link in item.links
+                    a(href=`${link.href}` class=`menu__block-link ${link.class || ''}`) #{link.text}

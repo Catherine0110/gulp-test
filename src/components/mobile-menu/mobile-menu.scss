@@ -1,0 +1,53 @@
+.menu {
+    position: fixed;
+    top: 68px;
+    left: -100%;
+    width: 280px;
+    height: calc(100vh - 68px);
+    padding: 20px;
+    background-color : rgb(100% 100% 100% / 95%);
+    box-shadow: 0 3px 12px #00000029;
+    visibility: hidden;
+    z-index: -1;
+    transition: 0.3s ease;
+
+    &__block {
+        &:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    }
+    @media screen and (max-width: $mobile) {
+        top: 48px;
+        left: unset;
+        right: -100%;
+        height: calc(100vh - 48px);
+    }
+
+    &__block-title {
+        margin-bottom: 18px;
+        font-weight: 700;
+    }
+
+    &__block-link {
+        display: block;
+        margin-bottom: 22px;
+        line-height: 22px;
+        color: $blue;
+        text-decoration: underline;
+        transition: 0.3s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &.is-open {
+        left: 0;
+        visibility: visible;
+        z-index: 4;
+        @media screen and (max-width: $mobile) {
+            left: unset;
+            right: 0;
+        }
+    }
+}

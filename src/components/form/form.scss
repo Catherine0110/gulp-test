@@ -1,0 +1,161 @@
+
+.callback-form {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    @media screen and (max-width: $mobile) {
+        max-width: 100%;
+    }
+
+    &__inner {
+        margin-bottom: 32px;
+    }
+
+    &__link {
+        color: $blue;
+        border-bottom: 1px dotted $blue;
+        max-width: max-content;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__title {
+        font-weight: 700;  
+        margin-bottom: 32px;
+    }
+
+    &__field {
+        position: relative;
+        height: 60px;
+        display: block;      
+        margin-bottom: 16px;
+
+        &:last-of-type {
+            margin-bottom: 23px;
+        }
+    }
+
+
+    &__input {
+        display: block;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        padding: 19px 24px; 
+        font-size: 16px;
+        line-height: 100%;
+        background-color: $white;
+        border-radius: 8px; 
+        border: 2px solid $light-gray;
+        color:$black; 
+
+        &.just-validate-error-field {
+            border-color: $red;           
+        }
+
+        &.just-validate-success-field {
+            border-color: $green;
+        }
+           
+    }
+
+    &__text {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        color: $dark-gray;
+        transition: 0.5s;
+        position: absolute;
+        top: 20px;
+        left: 12px;
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        position: relative;
+        height: 50px;
+        width: 100%;
+        padding: 0 5px;
+        background: $red;
+        border-radius: 5px;
+        transition: 0.3s ease 0s;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 100%;
+        color: $white;
+        overflow: hidden;
+
+        span {
+            position: relative;
+            z-index: 2;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $green;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        &:disabled {
+            background-color: $dark-gray;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(0deg, rgb(0 0 51 / 15%), rgb(0 0 51 / 15%)), #CD3E48;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 1;
+        }
+
+        &:hover {
+            &:disabled {
+                &::after {
+                    display: none;
+                }
+            }
+
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+   
+}
+
+.just-validate-error-label {
+    font-size: 12px;
+    line-height: 100%;
+    color: $red !important;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+}

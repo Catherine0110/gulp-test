@@ -1,0 +1,14 @@
+section(class=`block-text ${content.last || ''}`) 
+    .container 
+        div(class=`block-text__inner ${content.left ? 'left': ''}`) 
+            .block-text__content.js-faq-item
+                .block-text__content-cap.js-faq-head
+                    +svg(`${content.svg}`,`${content.svg}`)
+                    .block-text__content-title #{content.title}
+                .block-text__content-p.js-faq-content
+                    each text in content.text
+                        if text.color
+                            p.block-text__color #{text.color}
+                        p.block-text__text #{text.p}                        
+            img(src=`${content.img}`, alt="").block-text__content-img
+                        
