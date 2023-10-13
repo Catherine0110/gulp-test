@@ -5,3 +5,4 @@ import './main/main';
 import './block-text/block-text';
 import './form/form';
 import './popup/popup';
+import './title-section/title-section';
